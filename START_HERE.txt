@@ -1,0 +1,5 @@
+DSS150P — Fundamentals of Data Engineering
+Weeks 1–2 Starter Pack
+
+Students should begin with README.md and docs/DATASET_GUIDE.md.
+The repository intentionally contains only minimal starter code.
