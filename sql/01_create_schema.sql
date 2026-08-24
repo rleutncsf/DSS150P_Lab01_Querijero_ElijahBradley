@@ -1,6 +1,5 @@
 -- This schema formalizes the customers.csv source for lab purposes.
--- customer_id is used as the primary key based on profiling evidence showing
--- no null values and a consistent "C####" format in the sample file.
+-- customer_id is used as the primary key based on profiling evidence showing no null values and a consistent "C####" format in the sample file.
 
 CREATE SCHEMA IF NOT EXISTS lab;
 

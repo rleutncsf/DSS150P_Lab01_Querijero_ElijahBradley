@@ -1,4 +1,3 @@
-"""Verify the local environment: confirm Postgres connectivity end to end."""
 from sqlalchemy import create_engine, text
 
 CONNECTION_STRING = "postgresql+psycopg2://dss150p:dss150p@localhost:5432/dss150p"

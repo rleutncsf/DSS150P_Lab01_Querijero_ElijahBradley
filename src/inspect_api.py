@@ -1,4 +1,3 @@
-"""Retrieve and inspect a REST API response without transforming it."""
 import json
 from datetime import datetime, timezone
 import requests

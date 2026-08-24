@@ -1,4 +1,3 @@
-"""Profile CSV, JSON, and Parquet sources without transforming them."""
 from pathlib import Path
 import pandas as pd
 
