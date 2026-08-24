@@ -1,14 +1,10 @@
-﻿                        Table "public.support_tickets"
-     Column     |            Type             | Collation | Nullable | Default 
-----------------+-----------------------------+-----------+----------+---------
- ticket_id      | integer                     |           | not null | 
- customer_id    | character varying(10)       |           | not null | 
- category       | character varying(40)       |           | not null | 
- priority       | character varying(10)       |           | not null | 
- assigned_agent | character varying(80)       |           |          | 
- opened_at      | timestamp without time zone |           | not null | 
- resolved_at    | timestamp without time zone |           |          | 
- status         | character varying(20)       |           | not null | 
-Indexes:
-    "support_tickets_pkey" PRIMARY KEY, btree (ticket_id)
+NOTE: This file must be regenerated on your own machine with Docker running.
 
+After loading sql/seed_support_tickets.sql, run:
+
+docker exec -i dss150p-postgres psql -U dss150p -d dss150p -c "\d support_tickets" > data/evidence/postgres_table_inspection.txt
+
+Also run these and paste the results into docs/source_inventory.md:
+
+docker exec -i dss150p-postgres psql -U dss150p -d dss150p -c "SELECT COUNT(*) FROM support_tickets;"
+docker exec -i dss150p-postgres psql -U dss150p -d dss150p -c "SELECT * FROM support_tickets LIMIT 5;"
