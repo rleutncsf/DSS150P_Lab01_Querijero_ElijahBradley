@@ -1,0 +1,8 @@
+NOTE: This file must be regenerated on your own machine, since tool versions
+are specific to your local install. Run the following in your project root
+and this file will be overwritten with your actual output:
+
+python --version > data/evidence/tool_versions.txt 2>&1
+git --version >> data/evidence/tool_versions.txt 2>&1
+docker --version >> data/evidence/tool_versions.txt 2>&1
+docker compose version >> data/evidence/tool_versions.txt 2>&1

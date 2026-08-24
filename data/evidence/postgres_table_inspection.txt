@@ -1,0 +1,10 @@
+NOTE: This file must be regenerated on your own machine with Docker running.
+
+After loading sql/seed_support_tickets.sql, run:
+
+docker exec -i dss150p-postgres psql -U dss150p -d dss150p -c "\d support_tickets" > data/evidence/postgres_table_inspection.txt
+
+Also run these and paste the results into docs/source_inventory.md:
+
+docker exec -i dss150p-postgres psql -U dss150p -d dss150p -c "SELECT COUNT(*) FROM support_tickets;"
+docker exec -i dss150p-postgres psql -U dss150p -d dss150p -c "SELECT * FROM support_tickets LIMIT 5;"

@@ -1,0 +1,170 @@
+
+============================================================
+=== customers.csv ===
+============================================================
+file size: 17.76 KB
+shape (rows, cols): (250, 7)
+columns in original order: ['customer_id', 'first_name', 'last_name', 'email', 'city', 'signup_date', 'customer_segment']
+
+-- dtypes --
+customer_id         str
+first_name          str
+last_name           str
+email               str
+city                str
+signup_date         str
+customer_segment    str
+dtype: object
+
+-- nulls per column --
+customer_id         0
+first_name          0
+last_name           0
+email               3
+city                2
+signup_date         0
+customer_segment    0
+dtype: int64
+
+fully duplicated rows: 2
+
+-- distinct values per column --
+  customer_id: 247
+  first_name: 20
+  last_name: 20
+  email: 184
+  city: 10
+  signup_date: 189
+  customer_segment: 4
+
+-- first 5 records --
+  customer_id first_name   last_name  ...         city signup_date customer_segment
+0       C0001      Kevin    Bautista  ...        Pasig  2025-04-27     Professional
+1       C0002      Paolo     Mendoza  ...       Makati  2025-08-04           Retail
+2       C0003      Julia       Ramos  ...       Taguig  2026-01-15              SME
+3       C0004      Marco       Reyes  ...       Makati  2026-02-21          Student
+4       C0005      Paolo  Villanueva  ...  Quezon City  2025-12-15     Professional
+
+[5 rows x 7 columns]
+
+-- date/time-like columns (safe-parsed) --
+  signup_date: earliest=2025-01-04 00:00:00, latest=2026-05-16 00:00:00, unparseable_after_coercion=0
+
+============================================================
+=== orders.json ===
+============================================================
+file size: 76.11 KB
+shape (rows, cols): (250, 9)
+columns in original order: ['order_id', 'customer_id', 'order_timestamp', 'status', 'item_count', 'subtotal', 'shipping_fee', 'total_amount', 'shipping']
+
+-- dtypes --
+order_id               str
+customer_id            str
+order_timestamp        str
+status                 str
+item_count           int64
+subtotal           float64
+shipping_fee         int64
+total_amount       float64
+shipping            object
+dtype: object
+
+-- nulls per column --
+order_id           0
+customer_id        0
+order_timestamp    0
+status             0
+item_count         0
+subtotal           0
+shipping_fee       0
+total_amount       0
+shipping           0
+dtype: int64
+
+fully duplicated rows: 0
+
+-- distinct values per column --
+  order_id: 250
+  customer_id: 159
+  order_timestamp: 250
+  status: 6
+  item_count: 8
+  subtotal: 250
+  shipping_fee: 5
+  total_amount: 250
+  shipping: (unhashable/nested type - nunique skipped)
+
+-- first 5 records --
+  order_id  ...                                        shipping
+0   O00001  ...  {'region': 'Region VII', 'method': 'Standard'}
+1   O00002  ...     {'region': 'Region XI', 'method': 'Pickup'}
+2   O00003  ...   {'region': 'Region IV-A', 'method': 'Pickup'}
+3   O00004  ...  {'region': 'Region III', 'method': 'Standard'}
+4   O00005  ...  {'region': 'Region VII', 'method': 'Standard'}
+
+[5 rows x 9 columns]
+
+-- numeric ranges --
+  item_count: min=1, max=8
+  subtotal: min=214.4, max=11997.73
+  shipping_fee: min=0, max=149
+  total_amount: min=214.4, max=12096.73
+
+-- date/time-like columns (safe-parsed) --
+  order_timestamp: earliest=2026-01-02 03:00:00, latest=2026-06-30 07:38:00, unparseable_after_coercion=0
+
+============================================================
+=== products.parquet ===
+============================================================
+file size: 14.31 KB
+shape (rows, cols): (200, 7)
+columns in original order: ['product_id', 'product_name', 'category', 'brand', 'unit_price', 'stock_quantity', 'weight_kg']
+
+-- dtypes --
+product_id            str
+product_name          str
+category              str
+brand                 str
+unit_price        float64
+stock_quantity      int32
+weight_kg         float64
+dtype: object
+
+-- nulls per column --
+product_id        0
+product_name      0
+category          0
+brand             0
+unit_price        0
+stock_quantity    0
+weight_kg         0
+dtype: int64
+
+fully duplicated rows: 0
+
+-- distinct values per column --
+  product_id: 200
+  product_name: 200
+  category: 6
+  brand: 6
+  unit_price: 200
+  stock_quantity: 135
+  weight_kg: 197
+
+-- first 5 records --
+  product_id         product_name  ... stock_quantity weight_kg
+0      P0001  Pioneer Storage 001  ...             61     0.215
+1      P0002   Nimbus Monitor 002  ...            239     4.407
+2      P0003    Aster Storage 003  ...             53     6.358
+3      P0004     Vertex Phone 004  ...             27     6.199
+4      P0005    Orion Storage 005  ...            109     5.168
+
+[5 rows x 7 columns]
+
+-- numeric ranges --
+  unit_price: min=392.85, max=84796.84
+  stock_quantity: min=0, max=250
+  weight_kg: min=0.114, max=7.989
+
+-- date/time-like columns (safe-parsed) --
+  (no date/time-like columns detected by name heuristic)

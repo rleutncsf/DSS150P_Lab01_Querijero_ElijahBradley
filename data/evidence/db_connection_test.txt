@@ -1,0 +1,11 @@
+NOTE: This file must be regenerated on your own machine with Docker running,
+since this environment cannot run Docker/PostgreSQL to produce real output.
+
+Run from the project root after `docker compose up -d`:
+
+python src/verify_environment.py > data/evidence/db_connection_test.txt 2>&1
+
+Expected output looks like:
+Connection successful.
+PostgreSQL version: PostgreSQL 16.x ...
+Connected to database: dss150p

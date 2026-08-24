@@ -1,0 +1,8 @@
+status code: 200
+content-type: application/json
+top-level JSON type: dict
+top-level keys: ['count', 'records']
+record count: 100
+sample record: {'order_id': 'O00001', 'customer_id': 'C0230', 'order_timestamp': '2026-06-27T03:27:00', 'status': 'Packed', 'item_count': 7, 'subtotal': 5390.6, 'shipping_fee': 49, 'total_amount': 5439.6, 'shipping': {'region': 'Region VII', 'method': 'Standard'}}
+saved snapshot to: data/raw/api_snapshot.json
+retrieved_at_utc: 2026-08-23T12:43:47.631539+00:00

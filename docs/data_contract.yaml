@@ -1,0 +1,55 @@
+# Selected source: customers.csv
+# Rationale: It is flat, structured, and has an obvious candidate business key
+# (customer_id) with no nested structures to resolve first, making it a
+# realistic starting point for a governed schema/contract compared to the
+# nested orders.json, which would require a flattening decision before a
+# contract could even be written.
+
+dataset_name: customers
+version: 1.0
+owner: "unknown - requires confirmation from CRM/source owner"
+source_type: file
+source_format: csv
+acquisition_method: "Scheduled batch file pull from the source export location"
+expected_update_pattern: batch
+primary_key: customer_id
+schema:
+  - name: customer_id
+    type: string
+    nullable: false
+    description: "Unique customer identifier, observed format C#### in the sample"
+  - name: first_name
+    type: string
+    nullable: false
+    description: "Customer's given name"
+  - name: last_name
+    type: string
+    nullable: false
+    description: "Customer's family name"
+  - name: email
+    type: string
+    nullable: true
+    description: "Contact email address; format not validated at the source"
+  - name: city
+    type: string
+    nullable: true
+    description: "City of residence"
+  - name: signup_date
+    type: date
+    nullable: true
+    description: "Date the customer registered; stored as plain string at source until parsed"
+  - name: customer_segment
+    type: string
+    nullable: true
+    description: "Business-assigned segment label; observed values in sample: Retail, SME, Professional, Student"
+quality_rules:
+  - "customer_id must not be null"
+  - "customer_id must be unique"
+  - "customer_id must match the pattern ^C[0-9]{4,}$"
+  - "signup_date, once parsed, must not be a future date"
+  - "customer_segment, if present, must be one of: Retail, SME, Professional, Student"
+freshness_expectation: "unknown - requires confirmation from source owner"
+duplicate_policy: reject
+schema_evolution_policy: "New columns should be added as nullable and versioned (e.g. 1.1); removing or renaming an existing column requires a major version bump and advance notice to the consumer listed below"
+consumer: "Analytics team building customer segmentation and lifecycle reports"
+notes: "Email format/uniqueness has not been validated against the true source system; customer_segment's allowed values were inferred only from the sample file and must be confirmed with the business owner before being treated as exhaustive"

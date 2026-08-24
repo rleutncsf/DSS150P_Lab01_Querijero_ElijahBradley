@@ -1,6 +1,8 @@
+"""Verify the local environment: confirm Postgres connectivity end to end."""
 from sqlalchemy import create_engine, text
 
-CONNECTION_STRING = "postgresql+psycopg2://dss150p:dss150p_lab@localhost:5432/dss150p_lab"
+CONNECTION_STRING = "postgresql+psycopg2://dss150p:dss150p@localhost:5432/dss150p"
+
 
 def main():
     engine = create_engine(CONNECTION_STRING)
@@ -14,6 +16,7 @@ def main():
     except Exception as exc:
         print("Connection FAILED:", exc)
         raise
+
 
 if __name__ == "__main__":
     main()

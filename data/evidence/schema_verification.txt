@@ -1,0 +1,8 @@
+NOTE: This file must be regenerated on your own machine with Docker running.
+
+After applying sql/01_create_schema.sql, run:
+
+docker exec -i dss150p-postgres psql -U dss150p -d dss150p -c "\d lab.customers" > data/evidence/schema_verification.txt
+
+This will show the actual deployed column list, types, and constraints for
+lab.customers, confirming it matches sql/01_create_schema.sql.
